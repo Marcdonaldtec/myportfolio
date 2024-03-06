@@ -1,0 +1,14 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+  <h2>Connexion</h2>
+  <form method="post" action="{% url 'registration:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Connexion</button>
+  </form>
+  
+  <p>Vous avez oublié votre mot de passe ? <a href="{% url 'registration:password_reset' %}">Réinitialiser le mot de passe</a></p>
+{% endblock %}
