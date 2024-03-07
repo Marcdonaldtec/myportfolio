@@ -3,11 +3,19 @@
 {% block title %}Confirm Delete{% endblock %}
 
 {% block content %}
-  <h2>Confirm Delete</h2>
-  <p>Are you sure you want to delete the contact "{{ contact.full_name }}"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-    <a href="{% url 'contact:contact_list' %}">No, Cancel</a>
-  </form>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-danger text-white">
+        <h2 class="mb-0">Confirm Delete</h2>
+      </div>
+      <div class="card-body">
+        <p class="lead">Are you sure you want to delete the contact "{{ contact.full_name }}"?</p>
+        <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger mr-2">Yes, delete</button>
+          <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">No, Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

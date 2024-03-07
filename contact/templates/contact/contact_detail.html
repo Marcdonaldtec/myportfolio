@@ -3,10 +3,19 @@
 {% block title %}Contact Detail{% endblock %}
 
 {% block content %}
-  <h2>Contact Detail</h2>
-  <p><strong>Name:</strong> {{ contact.full_name }}</p>
-  <p><strong>Email:</strong> {{ contact.email }}</p>
-  <p><strong>Subject:</strong> {{ contact.subject }}</p>
-  <p><strong>Message:</strong> {{ contact.message }}</p>
-  <p><a href="{% url 'contact:contact_list' %}">Back to Contact List</a></p>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h2>Contact Detail</h2>
+      </div>
+      <div class="card-body">
+        <p class="lead"><strong>Name:</strong> {{ contact.full_name }}</p>
+        <p class="lead"><strong>Email:</strong> {{ contact.email }}</p>
+        <p class="lead"><strong>Subject:</strong> {{ contact.subject }}</p>
+        <p class="lead"><strong>Message:</strong> {{ contact.message }}</p>
+        <a href="{% url 'contact:contact_create' %}" class="btn btn-primary">Back to Contact form</a>
+        <a href="{% url 'contact:contact_delete' pk=contact.id %}" class="btn btn-primary">Delete Contact</a>
+      </div>
+    </div>
+  </div>
 {% endblock %}
