@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block content %}
+  <h2>Contact Form</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <p><a href="{% url 'contact:contact_list' %}">Back to Contact List</a></p>
+{% endblock %}

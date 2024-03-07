@@ -15,7 +15,7 @@
 </style>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body-tertiary rounded">
         <a class="navbar-brand" href="/"><img class="logo" src="{% static 'images/myLogo1.png' %}" alt="Mon Portfolio"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'contact:contact_create' %}">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                     <!-- Ajouter ici le lien de déconnexion si l'utilisateur est connecté -->

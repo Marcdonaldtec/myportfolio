@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Contact List{% endblock %}
+
+{% block content %}
+  <h2>Contact List</h2>
+  <ul>
+    {% for contact in contacts %}
+      <li><a href="{% url 'contact:contact_detail' contact.id %}">{{ contact.full_name }}</a></li>
+    {% endfor %}
+  </ul>
+  <p><a href="{% url 'contact:contact_create' %}">Create New Contact</a></p>
+{% endblock %}
