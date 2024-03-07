@@ -1,0 +1,40 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ action }} Project{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mt-4 mb-4">{{ action }} Project</h2>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="id_title" class="form-label">Title:</label>
+        {{ form.title }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_description" class="form-label">Description:</label>
+        {{ form.description }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_technology_used" class="form-label">Technology Used:</label>
+        {{ form.technology_used }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_image" class="form-label">Image:</label>
+        {{ form.image }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_link" class="form-label">Link:</label>
+        {{ form.link }}
+      </div>
+
+      <button type="submit" class="btn btn-primary">{{ action }}</button>
+    </form>
+  </div>
+{% endblock %}

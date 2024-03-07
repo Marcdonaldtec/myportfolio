@@ -1,0 +1,62 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+  <div class="container animated">
+    <h2 class="mt-4 mb-4 text-center">About Me</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ profile.photo.url }}" alt="{{ profile.first_name }} {{ profile.last_name }}" class="img-fluid rounded-circle">
+      </div>
+
+      <div class="col-md-8">
+        <p class="lead"><strong>Name:</strong> {{ profile.first_name }} {{ profile.last_name }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+        <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+        <p><strong>Website:</strong> <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a></p>
+        <p><strong>Github URL:</strong> <a href="{{ profile.github_url }}" target="_blank">{{ profile.github_url }}</a></p>
+        <p><strong>Facebook URL:</strong> <a href="{{ profile.facebook_url }}" target="_blank">{{ profile.facebook_url }}</a></p>
+        <p><strong>LinkedIn URL:</strong> <a href="{{ profile.linkedin_url }}" target="_blank">{{ profile.linkedin_url }}</a></p>
+        <p><strong>Twitter Handle:</strong> {{ profile.twitter_handle }}</p>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <h3>Skills:</h3>
+        <ul class="list-group">
+          {% for skill in profile.skills.all %}
+            <li class="list-group-item">{{ skill.name }} - {{ skill.description }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h3>Education:</h3>
+        <ul class="list-group">
+          {% for education in profile.education.all %}
+            <li class="list-group-item">{{ education.degree }} in {{ education.field_of_study }} at {{ education.institution }}, {{ education.graduation_year }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h3>Experience:</h3>
+        <ul class="list-group">
+          {% for experience in profile.experience.all %}
+            <li class="list-group-item">
+              <strong>{{ experience.job_title }} at {{ experience.company }}</strong>,
+              {{ experience.start_date }} - {{ experience.end_date|default:"Present" }}
+              <p>{{ experience.description }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
