@@ -22,9 +22,10 @@ from django.contrib.auth import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portfolio.urls')),
-    path('registration', include('registration.urls')),
-    path('projects', include('projects.urls')),
-    path('contact', include('contact.urls')),
+    path('registration/', include('registration.urls')),
+    path('projects/', include('projects.urls')),
+    path('contact/', include('contact.urls')),
+    path('donation/', include('donation.urls')),
     path('accounts/', include(urls)),
     
 ]
