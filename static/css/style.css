@@ -33,11 +33,9 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.display-4 {
-  animation: fadeIn 1.5s ease-out; /* Réglez la durée et l'effet selon vos préférences */
-}
 
-/* Ajoutez une classe spécifique pour la deuxième phrase */
+/* 
+Ajoutez une classe spécifique pour la deuxième phrase */
 .welcome-text {
   animation: fadeIn 1.5s ease-out 0.5s; /* Décalez le démarrage de l'animation */
 }
