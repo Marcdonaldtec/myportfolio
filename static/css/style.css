@@ -48,11 +48,3 @@
   to { width: 100%; }
 }
 
-.typewriter-text {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(30, end) 1s forwards;
-}
-.typewriter-text{
-z-index: -1;
-}
