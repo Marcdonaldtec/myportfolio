@@ -25,11 +25,11 @@ SECRET_KEY = os.path.join('SECRET_KEY')
 
 # 'django-insecure-5j*s4a^z+0%4fq7^z0fr8fnlxq-ckbz1r#*ki3w7c*9$8t7j5b'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ['.marcdonaldtecheva.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.marcdonaldtecheva.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
