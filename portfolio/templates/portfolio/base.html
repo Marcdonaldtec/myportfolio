@@ -8,20 +8,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-sfkpGXJIYB7UzcfS8WfpWlXK0o0DZlr+RSa0t6J1pORhec0XjGAoYiEJDb/6pDEEJklL62eT+TLObIq8s7HeTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-    <script src="https://js.stripe.com/v3/"></script>
-    <title>{% block title %}Mon Portfolio{% endblock %}</title>
+    <title>{% block title %}My Portfolio{% endblock %}</title>
 </head>
-<style>
-
-</style>
 
 <body>
 
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body-tertiary rounded">
         <a class="navbar-brand" href="/"><img class="logo" src="{% static 'images/myLogo1.png' %}"
-                alt="Mon Portfolio"></a>
+                alt="My Portfolio"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,13 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Accueil</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'portfolio:about_me' %}">À propos</a>
+                    <a class="nav-link" href="{% url 'portfolio:about_me' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'projects:project_list' %}">Projets</a>
+                    <a class="nav-link" href="{% url 'projects:project_list' %}">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blog</a>
@@ -45,43 +42,68 @@
                     <a class="nav-link" href="{% url 'donation:donation_form' %}">Donate</a>
                 </li>
                 {% if user.is_authenticated %}
-                <!-- Ajouter ici le lien de déconnexion si l'utilisateur est connecté -->
+                <!-- Add logout link if the user is authenticated -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration:logout' %}">Déconnexion</a>
+                    <a class="nav-link" href="{% url 'registration:logout' %}">Logout</a>
                 </li>
                 {% else %}
+                <!-- Add registration and login links if the user is not authenticated -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration:register' %}">Inscription</a>
+                    <a class="nav-link" href="{% url 'registration:register' %}">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration:login' %}">Connection</a>
+                    <a class="nav-link" href="{% url 'registration:login' %}">Login</a>
                 </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
+    <!-- End Navigation Bar -->
 
+    <!-- Main Content -->
     <div class="container-fluid mt-4">
         {% block content %}{% endblock %}
     </div>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer class="bg-light text-center rounded">
+        <div class="container p-4">
+            <!-- Social Media Icons -->
+            <section class="mb-4">
+                <a class="btn btn-outline-dark btn-floating m-1"
+                    href="https://www.facebook.com/profile.php?id=100071095987734&sk=about" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/OmeusMarc" role="button"><i
+                        class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-dark btn-floating m-1"
+                    href="https://www.linkedin.com/in/marc-donald-omeus-3a10b5219/" role="button"><i
+                        class="fab fa-linkedin"></i></a>
 
 
-<!-- Footer -->
-<footer class="bg-light text-center rounded">
-    <!-- Grid container -->
-    <div class="container p-4">
-  
-    <!-- Copyright -->
-    <div class="text-center p-3">
-      © 2020 Copyright:
-      <a class="text-dark" href="#">marcdonaldtech</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
-    
+                <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/omarcdonald/"
+                    role="button"><i class="fab fa-instagram"></i></a>
+            </section>
+            <!-- End Social Media Icons -->
 
+            <!-- Contact -->
+            <section class="mb-4">
+                <p>
+                    <a class="nav-link" href="{% url 'contact:contact_create' %}">Contact me</a>
+                </p>
+            </section>
+            <!-- End Contact -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3">
+                © 2024 My Portfolio. All rights reserved.
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS, Popper.js, jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -91,7 +113,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
